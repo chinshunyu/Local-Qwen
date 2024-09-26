@@ -5,7 +5,7 @@ import torch
 app = Flask(__name__)
 
 # 模型路径
-model_name_or_path = '/data/cjy/qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
+model_name_or_path = './qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
 
 @torch.inference_mode()
 def load_model():

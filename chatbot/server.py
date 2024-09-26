@@ -5,7 +5,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-model_name_or_path = '/data/cjy/qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
+model_name_or_path = './qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
 chatbot = ChatBot(model_name_or_path)
 
 @app.route('/chat', methods=['POST'])
