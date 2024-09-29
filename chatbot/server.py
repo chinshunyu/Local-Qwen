@@ -2,12 +2,11 @@ from flask import Flask, request, jsonify, make_response
 from chatbot import ChatBot
 from flask_cors import CORS
 import uuid
-import time
+
 
 app = Flask(__name__)
 app.secret_key = '123456'  # 使用一个更复杂的密钥
 
-# 修改 CORS 设置
 # CORS(app, resources={r"/*": {"origins": ["http://192.168.10.225:9100"], "supports_credentials": True}})
 CORS(app, resources={r"/*": {
     "origins": ["https://84a7-139-227-188-50.ngrok-free.app", "http://192.168.10.225:9100"],

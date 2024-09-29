@@ -1,6 +1,6 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
-import time
+
 
 class ChatBot:
     def __init__(self, model_name_or_path, max_history=10):
@@ -36,16 +36,6 @@ class ChatBot:
                 # top_p=0.95,
                 # top_k=50
             )
-
-        # generated_ids = self.model.generate(
-        #     model_inputs.input_ids,
-        #     max_new_tokens=max_length,
-        #     attention_mask=model_inputs.attention_mask
-        #     # do_sample=True,
-        #     # top_p=0.95,
-        #     # top_k=50
-        # )
-
 
         generated_ids = [
             output_ids[len(model_inputs.input_ids[0]):] for output_ids in generated_ids
