@@ -1,74 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-'''
-@File	:server.py
-@Time	:2024/09/25 18:16:43
-@Author :JohnCachy
-@Mail	:junyong.chen@iston.ai
-'''
-
-# from flask import Flask, request, jsonify
-# from chatbot import ChatBot
-# from flask_cors import CORS
-# app = Flask(__name__)
-# CORS(app)
-
-
-# model_name_or_path = '/data/cjy/qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
-# chatbot = ChatBot(model_name_or_path)
-
-# @app.route('/chat', methods=['POST'])
-# def generate_response():
-#     data = request.json
-#     messages = data.get('messages', [])
-#     max_length = data.get('max_length', 8000)
-#     response = chatbot.generate_response(messages, max_length)
-#     return jsonify({'response': response})
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=5000)
-
-###########
-
-
-# from flask import Flask, request, jsonify
-# from chatbot import ChatBot
-# from flask_cors import CORS
-# import uuid  # 新增：用于生成唯一用户ID
-
-# app = Flask(__name__)
-# CORS(app)
-
-# model_name_or_path = '/data/cjy/qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
-# chatbot = ChatBot(model_name_or_path)
-
-# @app.route('/chat', methods=['POST'])
-# def generate_response():
-#     data = request.json
-#     messages = data.get('messages', [])
-#     max_length = data.get('max_length', 8000)
-#     user_id = data.get('user_id')  # 新增：从请求中获取用户ID
-    
-#     if not user_id:
-#         user_id = str(uuid.uuid4())  # 如果没有提供用户ID，则生成一个新的
-
-#     response = chatbot.generate_response(user_id, messages, max_length)
-#     return jsonify({'response': response, 'user_id': user_id})  # 返回响应和用户ID
-
-# @app.route('/reset', methods=['POST'])  # 新增：重置聊天历史的路由
-# def reset_history():
-#     data = request.json
-#     user_id = data.get('user_id')
-#     if user_id:
-#         chatbot.reset_history(user_id)
-#         return jsonify({'message': f'History reset for user {user_id}'})
-#     else:
-#         return jsonify({'error': 'User ID is required'}), 400
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=5000)
-
-
 from flask import Flask, request, jsonify, make_response
 from chatbot import ChatBot
 from flask_cors import CORS
@@ -85,7 +14,7 @@ CORS(app, resources={r"/*": {
     "supports_credentials": True
 }})
 
-model_name_or_path = '/data/cjy/qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
+model_name_or_path = './qw/qw_model_file/qwen/Qwen2___5-7B-Instruct'
 chatbot = ChatBot(model_name_or_path)
 
 @app.route('/chat', methods=['POST', 'OPTIONS'])

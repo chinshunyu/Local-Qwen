@@ -5,25 +5,25 @@
         <template #default="{ height }">
           <el-scrollbar ref="scrollContainer" :height="height">
             <div class="welcome-wrapper">
-              <span class="title">欢迎使用阿尔法睿智能英语助教</span>
-              <span class="label animate__animated animate__bounceInDown">由AI驱动的智能助教</span>
+              <span class="title">欢迎使用智能助手</span>
+              <span class="label animate__animated animate__bounceInDown">由 AI 支持的网页版 Copilot</span>
             </div>
             <div class="example-wrapper ">
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .3s;">
-                <div class="title">🧐 提出英语学习相关疑问</div>
-                <div class="message-card">"如何提高英语口语?"</div>
+                <div class="title">🧐 提出复杂问题</div>
+                <div class="message-card">"我可以为我挑剔的只吃橙色食物的孩子做什么饭?"</div>
               </div>
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .5s;">
-                <div class="title">🙌 获取最权威的答案</div>
-                <div class="message-card">"雅思考试总共有几个部分?"</div>
+                <div class="title">🙌 获取更好的答案</div>
+                <div class="message-card">"销量最高的 3 种宠物吸尘器有哪些优点和缺点?"</div>
               </div>
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .7s;">
-                <div class="title">🎨 获得提分指南</div>
-                <div class="message-card">"作文总是写不完怎么办?"</div>
+                <div class="title">🎨 获得创意灵感</div>
+                <div class="message-card">"以海盗的口吻写一首关于外太空鳄鱼的俳句?"</div>
               </div>
             </div>
             <div class="tips-wrapper animate__animated animate__bounceInUp" style="animation-delay: .9s;">
-              让我们一起学习。智能助教由 AI 提供支持，因此可能出现意外和错误。
+              让我们一起学习。智能助手由 AI 提供支持，因此可能出现意外和错误。
             </div>
 
             <template v-for="(item, index) in chatList" :key="index">
