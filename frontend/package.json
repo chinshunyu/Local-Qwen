@@ -1,47 +1,45 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "chat-gpt-ui",
   "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.5.8",
-    "core-js": "^3.8.3"
+    "@element-plus/icons-vue": "^2.1.0",
+    "@iconify-json/ph": "^1.1.5",
+    "@vueuse/core": "^9.13.0",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.7",
+    "element-plus": "^2.2.33",
+    "highlight.js": "^11.7.0",
+    "lodash-es": "^4.17.21",
+    "markdown-it": "^13.0.1",
+    "openai": "^3.2.1",
+    "pinia": "^2.0.33",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vitejs/plugin-vue": "^1.0.0",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "vite": "^2.0.0",
-    "vue": "^3.2.13"
+    "@iconify-json/game-icons": "^1.1.2",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "gh-pages": "^5.0.0",
+    "sass": "^1.58.3",
+    "terser": "^5.16.8",
+    "unplugin-auto-import": "^0.15.2",
+    "unplugin-element-plus": "^0.7.0",
+    "unplugin-icons": "^0.15.3",
+    "unplugin-vue-components": "^0.24.1",
+    "vite": "^4.1.0"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser",
-      "requireConfigFile": false
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
+  "homepage": "https://Lupeiwen0.github.io/ChatGPT-UI/",
+  "keywords": [
+    "ChatGPT",
+    "ChatGPT-UI",
+    "chat-gpt-ui",
+    "ChatGPT-Template",
+    "ChatGPT-Dashboard"
   ]
 }

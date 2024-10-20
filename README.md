@@ -1,8 +1,11 @@
+### 下载模型
 - cd demo
 - python qw_model_download.py
-- cd chatbot
+
+### 启动后端
+- cd backend
 - python server.py
-#### streamlit: streamlit run frontend.py --server.address 192.168.xxxxxx --server.port 6006
-#### vue前端（优化中）
-- cd chatbot_ui
+
+#### 启动前端
+- cd frontend
 - npm run dev

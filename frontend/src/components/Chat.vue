@@ -20,7 +20,7 @@
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .7s;">
                 <div class="title">🎨 获得创意灵感</div>
                 <div class="message-card">"以海盗的口吻写一首关于外太空鳄鱼的俳句?"</div>
-              </div>
+              </div>·
             </div>
             <div class="tips-wrapper animate__animated animate__bounceInUp" style="animation-delay: .9s;">
               让我们一起学习。智能助手由 AI 提供支持，因此可能出现意外和错误。
