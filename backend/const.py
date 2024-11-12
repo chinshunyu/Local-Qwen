@@ -1,0 +1,1 @@
+MODEL_PATH = '/root/model_files/qw_model_file/qwen/Qwen2___5-7B-Instruct'
