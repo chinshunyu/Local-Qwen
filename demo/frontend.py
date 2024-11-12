@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-'''
-@File	:frontend.py
-@Time	:2024/09/25 18:17:13
-@Author :JohnCachy
-@Mail	:junyong.chen@iston.ai
-'''
 
 import streamlit as st
 import requests

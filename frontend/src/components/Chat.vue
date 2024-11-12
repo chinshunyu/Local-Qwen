@@ -6,7 +6,15 @@
           <el-scrollbar ref="scrollContainer" :height="height">
             <div class="welcome-wrapper">
               <span class="title">欢迎使用智能助手</span>
-              <span class="label animate__animated animate__bounceInDown">由 AI 支持的网页版 Copilot</span>
+              <span class="label animate__animated animate__bounceInDown">由AI驱动的智能助教</span>
+            </div>
+            <div class="button-group">
+              <el-select v-model="bot_type.value" placeholder="请选择机器人类型" style="width: 200px;">
+                <el-option label="物理专家" value="normal"></el-option>
+                <el-option label="天文学机器人" value="astronomy"></el-option>
+                <el-option label="电学机器人" value="electricity"></el-option>
+                <el-option label="力学机器人" value="mechanics"></el-option>
+              </el-select>
             </div>
             <div class="example-wrapper ">
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .3s;">
@@ -20,10 +28,10 @@
               <div class="item-wrapper animate__animated animate__bounceInDown" style="animation-delay: .7s;">
                 <div class="title">🎨 获得创意灵感</div>
                 <div class="message-card">"以海盗的口吻写一首关于外太空鳄鱼的俳句?"</div>
-              </div>·
+              </div>
             </div>
             <div class="tips-wrapper animate__animated animate__bounceInUp" style="animation-delay: .9s;">
-              让我们一起学习。智能助手由 AI 提供支持，因此可能出现意外和错误。
+              让我们一起学习。智能助教由 AI 提供支持，因此可能出现意外和错误。
             </div>
 
             <template v-for="(item, index) in chatList" :key="index">
@@ -58,7 +66,7 @@
         <div class="enter-icon">
           <i-ph-chat-circle-text-light />
         </div>
-        <el-input type="textarea" placeholder="有问题尽管问我..." resize="none" maxlength="2000" enterkeyhint="send"
+        <el-input type="textarea" placeholder="有问题尽管问我..." resize="none" maxlength="3000" enterkeyhint="send"
           autocorrect="off" show-word-limit :autosize="{ minRows: 1, maxRows: 8 }" v-model="userInput" @focus="focusHandle"
           @blur="blurHandle" @keydown.enter.prevent="sendMessage"></el-input>
 
@@ -87,7 +95,7 @@ const clientHeight = computed(() => `${height.value}px`)
 
 const scrollContainer = ref(null)
 const messages = ref([
-  { role: 'assistant', content: '您好,有什么可以帮您的？' }
+  { role: 'assistant', content: '您好,我是您的私人机器人助理,有什么可以帮助您？' }
 ])
 const userInput = ref('')
 const max_length = ref(512)
@@ -95,14 +103,15 @@ const pending = ref(false)
 const isMiniClear = ref(false)
 
 const chatList = computed(() => messages.value)
-
+// const bot_type = ref('normal');
+const bot_type = ref({ value: 'normal' });
 // function openSetting() {
 //   useModal(settingDrawer)
 // }
 
 function clearHandle() {
   pending.value = false
-  messages.value = [{ role: 'assistant', content: '有什么可以帮您的？' }]
+  messages.value = [{ role: 'assistant', content: '您好,我是您的私人机器人助理,有什么可以帮助您？' }]
 }
 
 function focusHandle() {
@@ -117,41 +126,19 @@ function deleteMessage(index) {
   messages.value.splice(index, 1)
 }
 
-// const sendMessage = () => {
-//   if (userInput.value.trim()) {
-//     messages.value.push({ role: 'user', content: userInput.value })
-//     pending.value = true
-//     fetch(`http://192.168.10.225:5000/chat`, {
-//     // fetch(`https://ed70-139-227-188-50.ngrok-free.app/chat`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         messages: [{ role: 'user', content: userInput.value }],
-//         max_length: max_length.value
-//       })
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       messages.value.push({ role: 'assistant', content: data.response })
-//       scrollToBottom()
-//       pending.value = false
-//     })
-//     .catch(error => {
-//       console.error('Error:', error)
-//       pending.value = false
-//     })
-//     userInput.value = ''
-//   }
+// function setBotType(type) {
+//   bot_type.value = type;
 // }
+// const selectedBotType = ref('normal');
+
+
 const sendMessage = () => {
   if (userInput.value.trim()) {
     const currentMessage = { role: 'user', content: userInput.value };
     messages.value.push(currentMessage)
     pending.value = true
-    fetch(`https://546a-139-227-188-50.ngrok-free.app/chat`, {
-    // fetch(`http://192.168.10.225:5000/chat`, {
+    // fetch(`https://a5d2-139-227-188-50.ngrok-free.app/chat`, {
+    fetch(`http://127.0.0.1:5002/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -161,6 +148,7 @@ const sendMessage = () => {
         messages: messages.value,  // 发送整个对话历史
         max_length: max_length.value,
         currentMessage: currentMessage,  // 用户当前输入的消息
+        bot_type: bot_type.value,
       })
     })
     .then(response => {
@@ -480,6 +468,10 @@ onMounted(() => {
     .el-scrollbar__view {
       padding-right: 0;
     }
+  }
+
+  .button-group {
+    margin: 20px 0;
   }
 }
 </style>

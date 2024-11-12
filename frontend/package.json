@@ -20,6 +20,7 @@
     "markdown-it": "^13.0.1",
     "openai": "^3.2.1",
     "pinia": "^2.0.33",
+    "vite-plugin-element-plus": "^0.0.12",
     "vue": "^3.2.45"
   },
   "devDependencies": {
